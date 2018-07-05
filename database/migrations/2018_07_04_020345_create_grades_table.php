@@ -14,6 +14,7 @@ class CreateGradesTable extends Migration
     public function up()
     {
         Schema::create('grades', function (Blueprint $table) {
+            $table->engine = 'InnoDB';
             $table->increments('id');
             $table->integer('lv_id')->unsigned()->nullable();
             $table->integer('user_id')->unsigned()->nullable();

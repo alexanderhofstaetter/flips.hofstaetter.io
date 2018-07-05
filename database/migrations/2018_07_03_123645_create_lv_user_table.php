@@ -14,6 +14,7 @@ class CreateLvUserTable extends Migration
     public function up()
     {
         Schema::create('lv_user', function (Blueprint $table) {
+            $table->engine = 'InnoDB';
             $table->integer('lv_id')->unsigned();
             $table->integer('user_id')->unsigned();
             $table->unique(['lv_id', 'user_id']);
