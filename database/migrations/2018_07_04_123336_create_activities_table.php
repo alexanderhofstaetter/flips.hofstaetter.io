@@ -15,15 +15,18 @@ class CreateActivitiesTable extends Migration
     {
         Schema::create('activities', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('user_id')->unsigned()->nullable();
             $table->string("identifier");
             $table->string("status");
             $table->string("event");
             $table->timestamps();
+        });
 
-            $table->integer('user_id')->unsigned()->nullable();
+        Schema::table('activities', function (Blueprint $table) {
             $table->foreign('user_id')
                   ->references('id')->on('users')
-                  ->onDelete('cascade')->onUpdate('cascade');
+                  ->onDelete('cascade')
+                  ->onUpdate('cascade');
         });
     }
 

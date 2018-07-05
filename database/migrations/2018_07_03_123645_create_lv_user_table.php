@@ -16,13 +16,18 @@ class CreateLvUserTable extends Migration
         Schema::create('lv_user', function (Blueprint $table) {
             $table->integer('lv_id')->unsigned();
             $table->integer('user_id')->unsigned();
-            $table->timestamps();
-            
             $table->unique(['lv_id', 'user_id']);
+            $table->timestamps();
+        });
+
+        Schema::table('lv_user', function (Blueprint $table) {
             $table->foreign('lv_id')->references('id')->on('rolvsles')
-                ->onDelete('cascade')->onUpdate('cascade');
+                  ->onDelete('cascade')
+                  ->onUpdate('cascade');
+                  
             $table->foreign('user_id')->references('id')->on('users')
-                ->onDelete('cascade')->onUpdate('cascade');
+                  ->onDelete('cascade')
+                  ->onUpdate('cascade');
         });
     }
 

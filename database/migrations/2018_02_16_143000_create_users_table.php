@@ -15,6 +15,7 @@ class CreateUsersTable extends Migration
     {
         Schema::create('users', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('flips_id')->unsigned()->nullable();
             $table->string('lastname')->nullable();
             $table->string('firstname')->nullable();
             $table->string('email')->unique();
@@ -27,11 +28,13 @@ class CreateUsersTable extends Migration
             $table->string('profile_email')->nullable();
             $table->rememberToken();
             $table->timestamps();
+        });
 
-            $table->integer('flips_id')->unsigned()->nullable();
+        Schema::table('users', function (Blueprint $table) {
             $table->foreign('flips_id')
                   ->references('id')->on('flips')
-                  ->onDelete('cascade');
+                  ->onDelete('cascade')
+                  ->onUpdate('cascade');
         });
     }
 

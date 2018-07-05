@@ -15,15 +15,18 @@ class CreateFlipsTable extends Migration
     {
         Schema::create('flips', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('user_id')->unsigned()->nullable();
             $table->string('url_scraped')->nullable();
             $table->string('cookies')->nullable();
             $table->string('matrikelnummer')->nullable();
             $table->timestamps();
+        });
 
-            $table->integer('user_id')->unsigned()->nullable();
+        Schema::table('flips', function (Blueprint $table) {
             $table->foreign('user_id')
                   ->references('id')->on('users')
-                  ->onDelete('cascade');
+                  ->onDelete('cascade')
+                  ->onUpdate('cascade');
         });
     }
 

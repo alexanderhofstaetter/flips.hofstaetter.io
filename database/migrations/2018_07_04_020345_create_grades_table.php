@@ -15,6 +15,8 @@ class CreateGradesTable extends Migration
     {
         Schema::create('grades', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('lv_id')->unsigned()->nullable();
+            $table->integer('user_id')->unsigned()->nullable();
             $table->float('points_max', 10, 2)->nullable();
             $table->float('points_sum', 10, 2)->nullable();
             $table->string('teacher_name')->nullable();
@@ -25,15 +27,18 @@ class CreateGradesTable extends Migration
             $table->string('source_id')->nullable();
             $table->string('type')->nullable();
             $table->timestamps();
+        });
 
-            $table->integer('user_id')->unsigned()->nullable();
-            $table->foreign('user_id')
-                  ->references('id')->on('users')
-                  ->onDelete('cascade')->onUpdate('cascade');
-            $table->integer('lv_id')->unsigned()->nullable();
+        Schema::table('grades', function (Blueprint $table) {
             $table->foreign('lv_id')
                   ->references('id')->on('lvs')
-                  ->onDelete('cascade')->onUpdate('cascade');
+                  ->onDelete('cascade')
+                  ->onUpdate('cascade');
+                  
+            $table->foreign('user_id')
+                  ->references('id')->on('users')
+                  ->onDelete('cascade')
+                  ->onUpdate('cascade');
         });
     }
 
