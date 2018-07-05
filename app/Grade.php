@@ -45,12 +45,12 @@ class Grade extends Model
 
     public function setEntryDateAttribute($value)
     {   if ($value != NULL)
-            $this->attributes['entry_date'] = Carbon::parse($value);
+            $this->attributes['entry_date'] = Carbon::createFromFormat('d.m.Y H:i:s', $value);
     }
 
     public function setDateAttribute($value)
     {   if ($value != NULL)
-            $this->attributes['date'] = Carbon::parse($value);
+            $this->attributes['date'] = Carbon::createFromFormat('d.m.Y H:i:s', $value);
     }
 
     public function setPointsSumAttribute($value)

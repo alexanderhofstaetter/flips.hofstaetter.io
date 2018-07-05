@@ -5,7 +5,7 @@ In der Lehrveranstaltung *{{ $lv->lvid }} - {{ $lv->name }}* wurde eine Note akt
 @component('mail::table')
 Bezeichnung | Punkte | Datum | Eingetragen von
 :--- | :--- | :--- | :---
-{{ $grade->title }} | **{{ ($grade->points_sum) }} von {{ $grade->points_max }}** | {{ $grade->entry_date->diffForHumans() }} | {{ $grade->teacher_name }}
+{{ $grade->title }} | **{{ $grade->points_sum }} von {{ $grade->points_max }}** | {{ $grade->entry_date->diffForHumans() }} | {{ $grade->teacher_name }}
 @endcomponent
 
 @component('mail::button', ['url' => $lv->url_gradebook])
@@ -21,8 +21,8 @@ In dieser Lehrveranstaltung sind aktuell {{ $lv->grades()->count() }} Noten eing
 @component('mail::table')
 Name | Punkte | Datum | Eingetragen von
 :--- | :--- | :--- | :---
-@foreach ($lv->grades()->orderBy('title')->get() as $grade)
-{{ $grade->title }} | {{ ($grade->points_sum) }} von {{ $grade->points_max }} | {{ $grade->entry_date->diffForHumans() }} | {{ $grade->teacher_name }}
+@foreach ($lv->grades()->orderBy('title')->whereNotNull('entry_date')->get() as $grade)
+{{ $grade->title }} | {{ ($grade->points_sum) }} von {{ $grade->points_max }} | {{ $grade->entry_date->format('d.m.Y') }} | {{ $grade->teacher_name }}
 @endforeach
 @endcomponent
 
