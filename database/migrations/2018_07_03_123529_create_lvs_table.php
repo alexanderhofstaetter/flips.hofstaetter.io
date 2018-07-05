@@ -14,7 +14,6 @@ class CreateLvsTable extends Migration
     public function up()
     {
         Schema::create('lvs', function (Blueprint $table) {
-            $table->engine = 'InnoDB';
             $table->increments('id');
             $table->string('key');
             $table->string('name')->nullable();
