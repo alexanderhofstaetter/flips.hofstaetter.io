@@ -10,4 +10,4 @@ Homestead.json
 Homestead.yaml
 *.log
 .env
-wu-learn-api*
+apis/*

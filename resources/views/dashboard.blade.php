@@ -2,12 +2,6 @@
 
 @section('content')
 
-@if (session('status'))
-<div class="alert alert-success">
-    {{ session('status') }}
-</div>
-@endif
-
 <img src="{{asset('images/wu-wien-logo.svg')}}" class="mx-auto d-block mb-4"/>
 
 <div class="container">
