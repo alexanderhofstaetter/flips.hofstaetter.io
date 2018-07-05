@@ -21,7 +21,7 @@ class CreateLvUserTable extends Migration
         });
 
         Schema::table('lv_user', function (Blueprint $table) {
-            $table->foreign('lv_id')->references('id')->on('rolvsles')
+            $table->foreign('lv_id')->references('id')->on('lvs')
                   ->onDelete('cascade')
                   ->onUpdate('cascade');
                   
