@@ -32,7 +32,7 @@ class Kernel extends ConsoleKernel
                       ->where('status', 'success');
             })->get();
             foreach ($users as $user) {
-                $user->wulearn()->load_webview();
+                $user->wulearn()->load_exams();
                 $user->wulearn()->load_data();
             }
         })->everyTenMinutes();
