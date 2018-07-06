@@ -21,7 +21,7 @@ class CreateLvsTable extends Migration
             $table->string('gradebook')->nullable();
             $table->string('semester')->nullable();
             $table->string('url_gradebook')->nullable();
-            $table->string('lvid')->nullable();
+            $table->string('number')->nullable();
             $table->timestamps();
         });
     }

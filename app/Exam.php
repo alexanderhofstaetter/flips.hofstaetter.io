@@ -14,7 +14,7 @@ class Exam extends Model
      * @var array
      */
     protected $fillable = [
-        'title', 'file', 'date', 'exam_id'
+        'title', 'file', 'date', 'number'
     ];
 
     protected $casts = [

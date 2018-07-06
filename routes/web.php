@@ -25,7 +25,7 @@ Route::group(['prefix' => '/user/{id}', 'as' => 'user.'], function(){
 		Route::group(['prefix' => '/load', 'as' => 'load.'], function(){
 			Route::post('/data', 'WuLearnController@load_data')->name('data');
 			Route::post('/meta', 'WuLearnController@load_meta')->name('meta');
-			Route::post('/webview', 'WuLearnController@load_webview')->name('webview');
+			Route::post('/exams', 'WuLearnController@load_exams')->name('exams');
 		});
 		Route::post('/verify', 'WuLearnController@verify')->name('verify');
 	});

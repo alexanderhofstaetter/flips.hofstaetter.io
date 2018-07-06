@@ -20,11 +20,11 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->string('password');
             $table->string('status')->nullable();
-            $table->string('registered_at')->nullable();
-            $table->string('identification')->nullable();
+            $table->string('wuregistered_at')->nullable();
+            $table->string('wuidentification')->nullable();
             $table->string('wulogin')->nullable();
             $table->string('wupassword')->nullable();
-            $table->string('profile_email')->nullable();
+            $table->string('wuemail')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

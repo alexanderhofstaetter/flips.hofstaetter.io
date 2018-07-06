@@ -62,11 +62,11 @@
                 <div class="card-body">           
                     <p>
                         <strong>Name</strong>: {{ $user->name }}
-                        <strong class="ml-2">Kennung</strong>: {{ $user->identification }}
-                        <strong class="ml-2">WU E-Mail-Adresse</strong>: {{ $user->profile_email }}<br/>
+                        <strong class="ml-2">Kennung</strong>: {{ $user->wuidentification }}
+                        <strong class="ml-2">WU E-Mail-Adresse</strong>: {{ $user->wuemail }}<br/>
                     </p>
                     <hr/>
-                    {{ $user->registered_at }}
+                    {{ $user->wuregistered_at }}
                     <?php $activity = $user->activities()->where('identifier', 'wu-learn-api')->orderBy('created_at', 'desc')->first(); ?>
                     @if ($activity)
                         <span class="float-right">
@@ -120,9 +120,9 @@
                                 </thead>
                                 <tbody>
                                 @foreach ($lv->grades()->orderBy('entry_date', 'desc')->get() as $grade)
-                                <tr class="{{ ($grade->points_sum) ? "" : "text-muted" }}">
+                                <tr class="{{ isset($grade->points_sum) ? "" : "text-muted" }}">
                                     <td style="width: 45%;">{{ $grade->title }}</td>
-                                    @if ($grade->points_sum)
+                                    @if (isset($grade->points_sum))
                                         <td>{{ ($grade->points_sum) }} von {{ $grade->points_max }}</td>
                                     @else
                                         <td>- (von {{ $grade->points_max }})</td>
@@ -148,7 +148,7 @@
             <div class="card card-default mb-4">
                 <div class="card-header">
                     <h4 class="mb-0 float-left">Prüfungseinsicht</h4>
-                    <form action="{{ route('user.wulearn.load.webview', $user->id) }}" method="POST">
+                    <form action="{{ route('user.wulearn.load.exams', $user->id) }}" method="POST">
                         @csrf
                         <button type="submit" class="btn btn-outline-secondary btn-sm float-right">
                             <i class="fas fa-sync-alt"></i> Daten aktualisieren

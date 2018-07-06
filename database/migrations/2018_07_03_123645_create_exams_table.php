@@ -18,7 +18,7 @@ class CreateExamsTable extends Migration
             $table->integer('user_id')->unsigned()->nullable();
             $table->string('title')->nullable();
             $table->string('file')->nullable();
-            $table->string('exam_id')->nullable();
+            $table->string('number')->nullable();
             $table->date('date')->nullable();
             $table->timestamps();
         });

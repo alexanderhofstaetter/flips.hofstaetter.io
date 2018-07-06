@@ -32,9 +32,9 @@ class WuLearnController extends Controller
         return redirect()->route('dashboard');
     }
 
-    public function load_webview(Request $request) {
+    public function load_exams(Request $request) {
         $user = $request->user();
-        $result = $user->wulearn()->load_webview();
+        $result = $user->wulearn()->load_exams();
         flash('Die Daten der Prüfungseinsicht wurden aktualisiert.')->success();
         return redirect()->route('dashboard');
     }

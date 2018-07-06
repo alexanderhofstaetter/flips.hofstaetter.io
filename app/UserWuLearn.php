@@ -19,58 +19,47 @@ class UserWuLearn
 
     public function load_data() {
         $api = new WuLearnApi( $this->user );
-        if ($api->verify()) {
-            $data = $api->call("data");
-            foreach ($data as $key => $entry) {
-                $lv = $this->user->lvs()->updateOrCreate(
-                    ['key' => $key], 
-                    $entry
-                );
-                if (array_key_exists("grades", $entry) ) {
-                    foreach ($entry["grades"] as $g) {
-                        $g["user_id"] = $this->user->id;
-                        $grade = $lv->grades()->updateOrCreate(
-                            ['title' => $g["title"], 'lv_id' => $lv->id], 
-                            $g
-                        );
-                    }
+        $api->call("grades");
+        $data = $api->data;
+        foreach ($data as $key => $entry) {
+            $lv = $this->user->lvs()->updateOrCreate(
+                ['key' => $key], 
+                $entry
+            );
+            if (array_key_exists("grades", $entry) ) {
+                foreach ($entry["grades"] as $g) {
+                    $g["user_id"] = $this->user->id;
+                    $grade = $lv->grades()->updateOrCreate(
+                        ['title' => $g["title"], 'lv_id' => $lv->id], 
+                        $g
+                    );
                 }
             }
         }
         return true;
     }
 
-
     public function load_meta() {
         $api = new WuLearnApi( $this->user );
-        if ($api->verify()) {
-            $data = $api->call("meta");
-            $this->user->update($data);
-        }
+        $api->call("meta");
+        $data = $api->data;
+        $this->user->update($data);
         return true;
     }
 
-    public function load_webview() {
+    public function load_exams() {
         $api = new WuLearnApi( $this->user );
-        if ($api->verify()) {
-            $data = $api->call("webview");
-
-            foreach ($data as $entry) {
-                $filename = hash("md5", "Einsicht-" . $this->user->wulogin . '-' . $entry["exam_id"]) . '.pdf';
-                $entry['file'] = $filename;
-                Storage::put($filename, base64_decode($entry["pdf"]));
-                $exam = $this->user->exams()->updateOrCreate(
-                    ['exam_id' => $entry["exam_id"]], 
-                    $entry
-                );
-            }
+        $api->call("exams");
+        $data = $api->data;
+        foreach ($data as $entry) {
+            $filename = hash("md5", "Einsicht-" . $this->user->wulogin . '-' . $entry["number"]) . '.pdf';
+            $entry['file'] = $filename;
+            Storage::put($filename, base64_decode($entry["pdf"]));
+            $exam = $this->user->exams()->updateOrCreate(
+                ['number' => $entry["number"]], 
+                $entry
+            );
         }
-        return true;
-    }
-
-    public function verify() {
-        $api = new WuLearnApi( $this->user );
-        $api->verify();
         return true;
     }
 }
