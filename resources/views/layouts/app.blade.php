@@ -1,11 +1,5 @@
 @extends('layouts.main')
 
-@if (session('status'))
-<div class="alert alert-success">
-    {{ session('status') }}
-</div>
-@endif
-
 @section('body')
 
 <div id="app">
@@ -60,6 +54,14 @@
     </nav>
 
     <main class="py-4">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-12">
+                    @include('flash::message')
+                </div>
+            </div>
+        </div>
+        
         @yield('content')
     </main>
 </div>
