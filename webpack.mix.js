@@ -11,6 +11,13 @@ let mix = require('laravel-mix');
  |
  */
 
-mix.js('resources/assets/js/app.js', 'public/js')
-   .sass('resources/assets/sass/app.scss', 'public/css')
+mix
+   /* CSS */
+   .sass('resources/assets/styles/app.scss', 'public/styles/app.css')
+   
+   /* JS */
+   .js('resources/assets/scripts/laravel/app.js', 'public/scripts/app.js')
+   .js('resources/assets/scripts/dashmix/app.js', 'public/scripts/gui.js')
+
+   /* Assets */
    .copyDirectory('resources/assets/fonts', 'public/fonts');

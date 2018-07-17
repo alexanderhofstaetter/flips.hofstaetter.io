@@ -17,6 +17,12 @@ class UserWuLearn
         $this->user = $user;
     }
 
+    public function get_loginpayload() {
+        $api = new WuLearnApi( $this->user );
+        $api->call("loginpayload");
+        return $api->data;
+    }
+
     public function load_data() {
         $api = new WuLearnApi( $this->user );
         $api->call("grades");

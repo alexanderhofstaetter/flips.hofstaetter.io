@@ -1,0 +1,41 @@
+//
+// Sidebar
+// --------------------------------------------------
+
+#sidebar {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    z-index: $zindex-sidebar;
+    width: 100%;
+    background-color: $sidebar-bg;
+    overflow-y: auto;
+    transform: translateX(-100%) translateY(0) translateZ(0);
+    -webkit-overflow-scrolling: touch;
+    will-change: transform;
+
+    .side-trans-enabled & {
+        transition: transform $side-transition;
+    }
+
+    .sidebar-r & {
+        right: 0;
+        left: auto;
+        transform: translateX(100%) translateY(0) translateZ(0);
+    }
+
+    @include media-breakpoint-down(md) {
+        .sidebar-o-xs & {
+            transform: translateX(0) translateY(0) translateZ(0);
+        }
+    }
+
+    @include media-breakpoint-up(lg) {
+        width: $sidebar-width;
+
+        .sidebar-o & {
+            transform: translateX(0) translateY(0) translateZ(0);
+        }
+    }
+}

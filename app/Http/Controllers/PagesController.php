@@ -29,6 +29,36 @@ class PagesController extends Controller
                ->with('user', Auth::user());
     }
 
+    public function general()
+    {
+        return view('uni.general')
+               ->with('user', Auth::user());
+    }
+
+    public function classes()
+    {
+        return view('uni.classes')
+               ->with('user', Auth::user());
+    }
+
+    public function grades()
+    {
+        return view('uni.grades')
+               ->with('user', Auth::user());
+    }
+
+    public function registration()
+    {
+        return view('uni.registration')
+               ->with('user', Auth::user());
+    }
+
+    public function exams()
+    {
+        return view('uni.exams')
+               ->with('user', Auth::user());
+    }
+
     public function download($filename)
     {   
         if ( Storage::exists($filename) )
