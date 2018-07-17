@@ -21,17 +21,20 @@
                 </li>
                 <li class="nav-main-item">
                     <a class="nav-main-link" href="{{ route('uni.classes') }}">
-                        <span class="nav-main-link-name">Lehrveranstaltungen</span>
+                        <span class="nav-main-link-name">LVs</span>
+                        <span class="nav-main-link-badge badge badge-pill badge-success">{{ $user->lvs()->count() }}</span>
                     </a>
                 </li>
                 <li class="nav-main-item">
                     <a class="nav-main-link" href="{{ route('uni.grades') }}">
                         <span class="nav-main-link-name">Noten</span>
+                        <span class="nav-main-link-badge badge badge-pill badge-success">{{ $user->grades()->count() }}</span>
                     </a>
                 </li>
                 <li class="nav-main-item">
                     <a class="nav-main-link" href="{{ route('uni.exams') }}">
                         <span class="nav-main-link-name">Prüfungen</span>
+                        <span class="nav-main-link-badge badge badge-pill badge-success">{{ $user->exams()->count() }}</span>
                     </a>
                 </li>
                 <li class="nav-main-item">

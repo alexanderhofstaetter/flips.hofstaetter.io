@@ -20,15 +20,10 @@
         <script>window.Laravel = {!! json_encode(['csrfToken' => csrf_token(),]) !!};</script>
     </head>
     <body>
-        <!-- Page Container -->
-        
         @yield('content')
-        
-        <!-- END Page Container -->
 
         <!-- GUI Core JS -->
         <script src="{{ mix('scripts/gui.js') }}"></script>
-
         <!-- App JS -->
         <script src="{{ mix('scripts/app.js') }}"></script>
 
