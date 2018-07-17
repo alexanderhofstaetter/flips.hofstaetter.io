@@ -4,15 +4,15 @@
 
 <h1>Link öffnen und anmelden</h1>
 <p>
-	Folgender Button öffnet den angegeben Link und meldet den User automatisch in Learn@WU an.
+	Folgender Button öffnet die angegebe URL und meldet den User automatisch in Learn@WU an.
 </p>
 <p>
-	<span class="font-w700 text-primary">Benutzername</span>: {{ $payload['username'] }}<br/>
+	<span class="font-w700 text-primary">Benutzername</span>: {{ $payload['username'] }} ({{ $user->name }})<br/>
 	<span class="font-w700 text-primary">URL</span>: https://learn.wu.ac.at{{ urldecode($payload['url']) }}
 </p>
 
 
-<form class="wulearnform_open" id="wulearnform_open" method="post" action="https://learn.wu.ac.at/register/" target="_blank">
+<form id="wulearnform_open" method="post" action="https://learn.wu.ac.at/register/">
 	
 	<input type="hidden" name="form:mode" value="{{ $payload['form:mode'] }}">
 	<input type="hidden" name="form:id" value="{{ $payload['form:id'] }}">
@@ -30,7 +30,7 @@
 	<input type="hidden" id="login:hash:0" name="hash" value="{{ $payload['hash'] }}">
 
 	<button type="submit" class="btn btn-primary">
-		<i class="si si-link"></i> Link in Learn@WU öffnen
+		<i class="si si-link"></i> URL in Learn@WU öffnen
 	</button>
 
 </form>

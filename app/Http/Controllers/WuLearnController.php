@@ -47,6 +47,9 @@ class WuLearnController extends Controller
     public function open(Request $request, User $user, $url) {
         $payload = $user->wulearn()->get_loginpayload();
         $payload['url'] = substr($url, strrpos($url, ".ac.at") + strlen(".ac.at"));
-        return view('openlearn')->with('payload', $payload);
+        return view('openlearn')->with([
+            'payload' => $payload,
+            'user' => $user
+        ]);
     }
 }

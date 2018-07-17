@@ -19,13 +19,16 @@
     <div class="block-header block-header-default">
         <h4 class="block-title">
             <strong>{{ $lv->key }} {{ $lv->name }}</strong>
-            @if ($lv->gradebook)<span class="badge badge-pill badge-dark">{{ $lv->grades()->count() }} Noten</span>
+            @if ($lv->gradebook)
+            <span class="badge badge-pill badge-dark">{{ $lv->grades()->count() }} Noten</span>
             @endif
             <small>({{ $lv->SemesterText }})</small>
         </h4>
+        @if ($lv->gradebook)
         <button class="btn btn-outline-secondary btn-sm float-right" type="button" data-toggle="collapse" data-target=".gradebook_{{ $key }}" aria-expanded="true">
             <i class="fas fa-toggle-off"></i> Noten
         </button>
+        @endif
     </div>
     <div class="block-content">
         @if ($lv->gradebook)

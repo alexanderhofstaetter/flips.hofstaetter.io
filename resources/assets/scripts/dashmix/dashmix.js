@@ -66,8 +66,6 @@ export default class App extends Template {
     //  }
 }
 
-// Once everything is loaded
 jQuery(() => {
-    // Create a new instance of App
    window.Dashmix = new App();
 });

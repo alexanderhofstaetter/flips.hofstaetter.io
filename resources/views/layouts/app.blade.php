@@ -9,11 +9,10 @@
         <!-- CSRF Token -->
         <meta name="csrf-token" content="{{ csrf_token() }}">
 
-        <!-- Fonts and Styles -->
+        <!-- Styles -->
         @yield('css_before')
         <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Nunito+Sans:300,400,400i,600,700">
         <link rel="stylesheet" href="{{ mix('styles/app.css') }}">
-
         @yield('css_after')
 
         <!-- Scripts -->
@@ -21,12 +20,7 @@
     </head>
     <body>
         @yield('content')
-
-        <!-- GUI Core JS -->
-        <script src="{{ mix('scripts/gui.js') }}"></script>
-        <!-- App JS -->
         <script src="{{ mix('scripts/app.js') }}"></script>
-
         @yield('js_after')
     </body>
 </html>
