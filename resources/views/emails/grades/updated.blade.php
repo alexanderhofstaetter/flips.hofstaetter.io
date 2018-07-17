@@ -1,7 +1,7 @@
 @component('mail::message')
 # Hallo {{ $user->firstname }}!
 
-In der Lehrveranstaltung *{{ $lv->lvid }} - {{ $lv->name }}* wurde eine Note aktualisiert.
+In der Lehrveranstaltung *{{ $lv->key }} - {{ $lv->name }}* wurde eine Note aktualisiert.
 @component('mail::table')
 Bezeichnung | Punkte | Datum | Eingetragen von
 :--- | :--- | :--- | :---
@@ -12,7 +12,7 @@ Bezeichnung | Punkte | Datum | Eingetragen von
 Notenbuch in Learn@WU öffnen 
 @endcomponent
 
-Liebe Grüße
+<hr/>
 
 <br/><br/>
 # {{ $lv->name }}

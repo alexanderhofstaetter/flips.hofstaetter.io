@@ -12,7 +12,6 @@ use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 use Illuminate\Support\Facades\Mail;
 use Carbon\Carbon;
 use App\Grade;
-use App\Mail\GradeAdded;
 use App\Mail\GradeUpdated;
 
 class GradeEvent
@@ -32,7 +31,7 @@ class GradeEvent
     public function gradeCreated(Grade $grade)
     {
         if ( $grade->entry_date >= Carbon::now()->subMinutes(15) )
-            Mail::to( $grade->user )->send(new GradeAdded( $grade ));
+            Mail::to( $grade->user )->send(new GradeUpdated( $grade ));
     }
 
     public function gradeUpdated(Grade $grade)

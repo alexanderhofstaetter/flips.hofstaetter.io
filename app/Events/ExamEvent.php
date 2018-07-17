@@ -12,7 +12,6 @@ use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 use Illuminate\Support\Facades\Mail;
 use Carbon\Carbon;
 use App\Exam;
-use App\Mail\ExamAdded;
 use App\Mail\ExamUpdated;
 
 class ExamEvent
@@ -32,12 +31,12 @@ class ExamEvent
     public function examCreated(Exam $exam)
     {
         if ( $exam->date >= Carbon::now()->subMinutes(15) )
-            Mail::to( $exam->user )->send(new ExamAdded( $exam ));
+            Mail::to( $exam->user )->send(new ExamUpdated( $exam ));
     }
 
     public function examUpdated(Exam $exam)
     {
         if ( $exam->date >= Carbon::now()->subMinutes(15) )
-           Mail::to( $exam->user )->send(new ExamUpdated( $exam ));
+            Mail::to( $exam->user )->send(new ExamUpdated( $exam ));
     }
 }
