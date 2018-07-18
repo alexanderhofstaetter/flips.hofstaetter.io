@@ -34,6 +34,7 @@ class Kernel extends ConsoleKernel
             foreach ($users as $user) {
                 $user->wulearn()->load_exams();
                 $user->wulearn()->load_data();
+                $user->wulearn()->load_news();
             }
         })->everyTenMinutes();
     }

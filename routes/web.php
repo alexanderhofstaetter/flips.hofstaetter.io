@@ -22,6 +22,7 @@ Route::group(['prefix' => '/uni', 'as' => 'uni.'], function(){
 	Route::get('/classes', 'PagesController@classes')->name('classes');
 	Route::get('/grades', 'PagesController@grades')->name('grades');
 	Route::get('/exams', 'PagesController@exams')->name('exams');
+	Route::get('/news', 'PagesController@news')->name('news');
 	Route::get('/registration', 'PagesController@registration')->name('registration');
 });
 
@@ -35,6 +36,7 @@ Route::group(['prefix' => '/user/{user}', 'as' => 'user.'], function(){
 			Route::post('/data', 'WuLearnController@load_data')->name('data');
 			Route::post('/meta', 'WuLearnController@load_meta')->name('meta');
 			Route::post('/exams', 'WuLearnController@load_exams')->name('exams');
+			Route::post('/news', 'WuLearnController@load_news')->name('news');
 		});
 		Route::get('/open/{url}', 'WuLearnController@open')->name('open');
 		Route::post('/verify', 'WuLearnController@verify')->name('verify');

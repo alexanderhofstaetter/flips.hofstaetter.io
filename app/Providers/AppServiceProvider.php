@@ -14,6 +14,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        setlocale(LC_TIME, "de_DE");
+        date_default_timezone_set('CET');
         Carbon::setLocale('de');
     }
 

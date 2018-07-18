@@ -2,9 +2,9 @@
 
 namespace App;
 
-use Illuminate\Database\Eloquent\Model;
-use Event;
 use Carbon\Carbon;
+use Event;
+use Illuminate\Database\Eloquent\Model;
 
 class Grade extends Model
 {

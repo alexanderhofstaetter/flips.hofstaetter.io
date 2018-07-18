@@ -27,6 +27,12 @@ class EventServiceProvider extends ServiceProvider
         ],
         'exam.updated' => [
             'App\Events\ExamEvent@examUpdated',
+        ],
+        'news.created' => [
+            'App\Events\NewsEvent@newsCreated',
+        ],
+        'news.updated' => [
+            'App\Events\NewsEvent@newsUpdated',
         ]
     ];
 

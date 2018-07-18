@@ -2,28 +2,29 @@
 
 namespace App\Mail;
 
-use App\Grade;
+use App\News;
+use App\User;
 use Illuminate\Bus\Queueable;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Contracts\Queue\ShouldQueue;
 
-class GradeUpdated extends Mailable
+class NewsUpdated extends Mailable
 {
     use Queueable, SerializesModels;
 
-    public $grade, $user, $lv;
+    public $news, $lv, $user;
 
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct(Grade $grade)
+    public function __construct(News $news, User $user)
     {
-        $this->grade = $grade;
-        $this->lv = $grade->lv;
-        $this->user = $grade->user;
+        $this->news = $news;
+        $this->lv = $news->lv;
+        $this->user = $user;
     }
 
     /**
@@ -32,8 +33,8 @@ class GradeUpdated extends Mailable
      * @return $this
      */
     public function build()
-    {
-        return $this->markdown('emails.grades.updated')
-                    ->subject("[Flips] Neue Note in \"" . $this->lv->name . "\" verfügbar");
+    {   
+        return $this->markdown('emails.news.updated')
+                    ->subject("[Flips] Neue Ankündigung in \"" . $this->lv->name . "\" verfügbar");
     }
 }

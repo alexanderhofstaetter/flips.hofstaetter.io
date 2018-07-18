@@ -40,13 +40,18 @@ class Lv extends Model
         return $value;
     }
 
-    public function user()
+    public function users()
     {
-        return $this->belongsToMany('App\User')->withTimestamps();;
+        return $this->belongsToMany('App\User')->withTimestamps();
     }
 
     public function grades()
     {
         return $this->hasMany('App\Grade');
+    } 
+
+    public function news()
+    {
+        return $this->hasMany('App\News');
     }    
 }

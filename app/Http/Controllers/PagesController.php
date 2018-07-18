@@ -59,6 +59,12 @@ class PagesController extends Controller
                ->with('user', Auth::user());
     }
 
+    public function news()
+    {
+        return view('uni.news')
+               ->with('user', Auth::user());
+    }
+
     public function download($filename)
     {   
         if ( Storage::exists($filename) )

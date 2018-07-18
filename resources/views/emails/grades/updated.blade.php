@@ -12,7 +12,7 @@ Bezeichnung | Punkte | Datum | Eingetragen von
 Notenbuch in Learn@WU öffnen 
 @endcomponent
 
-<hr/>
+--- 
 
 <br/><br/>
 # {{ $lv->name }}

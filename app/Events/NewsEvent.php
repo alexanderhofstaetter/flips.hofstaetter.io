@@ -11,10 +11,11 @@ use Illuminate\Broadcasting\InteractsWithSockets;
 use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 use Illuminate\Support\Facades\Mail;
 use Carbon\Carbon;
-use App\Exam;
-use App\Mail\ExamUpdated;
+use App\News;
+use App\User;
+use App\Mail\NewsUpdated;
 
-class ExamEvent
+class NewsEvent
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
@@ -28,15 +29,22 @@ class ExamEvent
         //
     }
 
-    public function examCreated(Exam $exam)
+    public function newsCreated(News $news)
     {
-        if ( $exam->date >= Carbon::now()->subDays(14) )
-            Mail::to( $exam->user )->send(new ExamUpdated( $exam ));
+        if ( $news->date >= Carbon::now()->subMinutes(15) ) {
+            foreach ($news->lv->users()->get() as $user) {
+                Mail::to( $user )->send(new NewsUpdated( $news, $user ));
+            }
+        }
+        
     }
 
-    public function examUpdated(Exam $exam)
-    {
-        if ( $exam->date >= Carbon::now()->subDays(14) )
-            Mail::to( $exam->user )->send(new ExamUpdated( $exam ));
+    public function newsUpdated(News $news)
+    {   
+        if ( $news->date >= Carbon::now()->subMinutes(15) ) {
+            foreach ($news->lv->users()->get() as $user) {
+                Mail::to( $user )->send(new NewsUpdated( $news, $user ));
+            }
+        }
     }
 }

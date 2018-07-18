@@ -185,6 +185,7 @@
 
         <!-- Main Container -->
         <main id="main-container">
+
             <div class="content">
                 @include('flash::message')
                 @yield('maincontent')

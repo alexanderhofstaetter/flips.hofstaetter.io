@@ -35,6 +35,12 @@ class WuLearnController extends Controller
         return back();
     }
 
+    public function load_news(Request $request, User $user) {
+        $result = $user->wulearn()->load_news();
+        flash('Die Ankündigungen wurden aktualisiert.')->success();
+        return back();
+    }
+
     public function verify(Request $request, User $user) {
         $result = $user->wulearn()->verify();
         if ($result == true)
@@ -46,7 +52,12 @@ class WuLearnController extends Controller
 
     public function open(Request $request, User $user, $url) {
         $payload = $user->wulearn()->get_loginpayload();
-        $payload['url'] = substr($url, strrpos($url, ".ac.at") + strlen(".ac.at"));
+        
+        $url = substr($url, strrpos($url, ".ac.at") + strlen(".ac.at"));
+        $url = str_replace("%3D", "=", $url);
+        $url = str_replace("%3F", "?", $url);
+        $payload['url'] = $url;
+
         return view('openlearn')->with([
             'payload' => $payload,
             'user' => $user

@@ -2,6 +2,8 @@
 
 namespace App;
 
+use App\Lv;
+use App\News;
 use Symfony\Component\Process\Process;
 use Symfony\Component\Process\Exception\ProcessFailedException;
 use Illuminate\Http\Request;
@@ -41,6 +43,24 @@ class UserWuLearn
                     );
                 }
             }
+        }
+        return true;
+    }
+
+    public function load_news() {
+        $api = new WuLearnApi( $this->user );
+        $api->call("news");
+        $data = $api->data;
+        foreach ($data as $entry) {
+            $lv = Lv::where('key', $entry['lv'])->first();
+            if( !$lv ) {
+                $this->load_data();
+                $lv = Lv::where('key', $entry['lv'])->first();
+            }
+            $news = $lv->news()->updateOrCreate(
+                ['number' => $entry["number"]], 
+                $entry
+            );
         }
         return true;
     }

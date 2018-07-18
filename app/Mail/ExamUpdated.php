@@ -36,7 +36,7 @@ class ExamUpdated extends Mailable
         $file = storage_path( 'app/'.$this->exam->file);
         $filename = "Prüfunsgeinsicht-".$this->user->wulogin.".pdf";
         return $this->markdown('emails.exams.updated')
-                    ->subject("[Flips] Es ist eine neue Prüfung zur Einsicht verfügbar")
+                    ->subject("[Flips] Prüfung \"" . $this->exam->title ."\" zur Einsicht verfügbar")
                     ->attach($file, [
                         'as' => $filename,
                         'mime' => 'application/pdf',

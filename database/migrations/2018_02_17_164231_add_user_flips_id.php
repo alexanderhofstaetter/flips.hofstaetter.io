@@ -29,6 +29,8 @@ class AddUserFlipsId extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('flips');
+        Schema::table('users', function (Blueprint $table) {
+            $table->dropForeign(['flips_id']);
+        });
     }
 }

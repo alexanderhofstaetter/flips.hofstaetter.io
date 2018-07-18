@@ -18,7 +18,7 @@
 <div class="block block-rounded block-bordered">
     <div class="block-header block-header-default">
         <h4 class="font-w700 block-title">Prüfung: {{ $exam->title }}</h4>
-        <small>({{ $exam->date->diffForHumans() }})</small>
+        <small>{{ $exam->updated_at->diffForHumans() }}</small>
     </div>
     <div class="block-content mb-3">    
         Ein Ergebnis der Prüfung vom {{ $exam->date->format('d.m.Y') }} liegt vor. 
