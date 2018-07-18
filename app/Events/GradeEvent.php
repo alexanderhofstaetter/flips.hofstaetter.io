@@ -30,13 +30,13 @@ class GradeEvent
 
     public function gradeCreated(Grade $grade)
     {
-        if ( $grade->entry_date >= Carbon::now()->subMinutes(15) )
+        if ( $grade->entry_date >= Carbon::now()->subDays(1) )
             Mail::to( $grade->user )->send(new GradeUpdated( $grade ));
     }
 
     public function gradeUpdated(Grade $grade)
     {
-        if ( $grade->entry_date >= Carbon::now()->subMinutes(15) )
-           Mail::to( $grade->user )->send(new GradeUpdated( $grade ));
+        if ( $grade->entry_date >= Carbon::now()->subDays(1) )
+            Mail::to( $grade->user )->send(new GradeUpdated( $grade ));
     }
 }

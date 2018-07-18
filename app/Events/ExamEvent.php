@@ -30,13 +30,13 @@ class ExamEvent
 
     public function examCreated(Exam $exam)
     {
-        if ( $exam->date >= Carbon::now()->subDays(14) )
+        if ( $exam->date >= Carbon::now()->subDays(21) )
             Mail::to( $exam->user )->send(new ExamUpdated( $exam ));
     }
 
     public function examUpdated(Exam $exam)
     {
-        if ( $exam->date >= Carbon::now()->subDays(14) )
+        if ( $exam->date >= Carbon::now()->subDays(21) )
             Mail::to( $exam->user )->send(new ExamUpdated( $exam ));
     }
 }

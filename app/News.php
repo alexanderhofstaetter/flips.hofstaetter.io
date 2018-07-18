@@ -39,6 +39,6 @@ class News extends Model
 
     public function setDateAttribute($value)
     {   if ($value != NULL)
-            $this->attributes['date'] = Carbon::createFromFormat('Y-m-d', $value);
+            $this->attributes['date'] = Carbon::createFromFormat('Y-m-d', $value)->format('Y-m-d');
     }
 }
