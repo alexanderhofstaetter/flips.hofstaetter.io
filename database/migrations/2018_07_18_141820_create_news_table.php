@@ -18,10 +18,10 @@ class CreateNewsTable extends Migration
             $table->integer('lv_id')->unsigned()->nullable();
             $table->string('author')->nullable();
             $table->string('url')->nullable();
-            $table->string('content')->nullable();
-            $table->date('date');
             $table->string('number');
             $table->string('title');
+            $table->date('date');
+            $table->longText('content')->nullable();
             $table->timestamps();
         });
 
