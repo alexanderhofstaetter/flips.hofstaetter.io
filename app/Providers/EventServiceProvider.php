@@ -30,9 +30,6 @@ class EventServiceProvider extends ServiceProvider
         ],
         'news.created' => [
             'App\Events\NewsEvent@newsCreated',
-        ],
-        'news.updated' => [
-            'App\Events\NewsEvent@newsUpdated',
         ]
     ];
 

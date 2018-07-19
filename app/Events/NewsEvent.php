@@ -38,13 +38,4 @@ class NewsEvent
         }
         
     }
-
-    public function newsUpdated(News $news)
-    {   
-        if ( $news->date >= Carbon::now()->subDays(1) ) {
-            foreach ($news->lv->users()->get() as $user) {
-                Mail::to( $user )->send(new NewsUpdated( $news, $user ));
-            }
-        }
-    }
 }

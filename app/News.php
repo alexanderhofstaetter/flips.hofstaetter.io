@@ -27,9 +27,6 @@ class News extends Model
         static::created(function($news) {
             Event::fire('news.created', $news);
         });
-        static::updated(function($news) {
-            Event::fire('news.updated', $news);
-        });
     }
     
     public function lv()
