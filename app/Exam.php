@@ -39,11 +39,6 @@ class Exam extends Model
             Event::fire('exam.updated', $exam);
         });
     }
-
-    public function setDateAttribute($value)
-    {   if ($value != NULL)
-            $this->attributes['date'] = Carbon::createFromFormat('d.m.Y', $value)->format('Y-m-d');
-    }
     
     public function user()
     {
