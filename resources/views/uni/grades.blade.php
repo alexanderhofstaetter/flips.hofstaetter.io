@@ -28,7 +28,7 @@
     <tr class="{{ isset($grade->points_sum) ? "" : "text-muted" }}">
         <td>
             <span class="font-w700">{{ $grade->lv->name }}</span> | {{ $grade->title }}
-            @if (isset($grade->comments))
+            @if (!empty($grade->comments))
                 <br/>
                 <a href="#" class="text-primary" data-toggle="tooltip" data-placement="top" title="{{ ($grade->comments) }}">
                     Kommentar <i class="fas fa-info"></i>
