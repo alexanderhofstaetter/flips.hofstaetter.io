@@ -48,6 +48,11 @@ class Grade extends Model
             $this->attributes['entry_date'] = Carbon::createFromFormat('d.m.Y H:i:s', $value);
     }
 
+    public function setCommentsAttribute($value)
+    {   if ($value == "") $value = NULL;
+        $this->attributes['comments'] = $value;
+    }
+
     public function setDateAttribute($value)
     {   if ($value != NULL)
             $this->attributes['date'] = Carbon::createFromFormat('d.m.Y H:i:s', $value);

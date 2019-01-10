@@ -26,7 +26,15 @@
     <tbody>
     @foreach ($user->grades()->orderBy('entry_date', 'desc')->whereNotNull('entry_date')->get() as $grade)
     <tr class="{{ isset($grade->points_sum) ? "" : "text-muted" }}">
-        <td><span class="font-w700">{{ $grade->lv->name }}</span> | {{ $grade->title }}</td>
+        <td>
+            <span class="font-w700">{{ $grade->lv->name }}</span> | {{ $grade->title }}
+            @if (isset($grade->comments))
+                <br/>
+                <a href="#" class="text-primary" data-toggle="tooltip" data-placement="top" title="{{ ($grade->comments) }}">
+                    Kommentar <i class="fas fa-info"></i>
+                </a>
+            @endif
+        </td>
         <td class="font-w700">
             @if (isset($grade->points_sum))
                 {{ ($grade->points_sum) }} von {{ $grade->points_max }}
