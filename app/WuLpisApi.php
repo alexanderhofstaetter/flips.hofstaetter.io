@@ -30,7 +30,7 @@ class WuLpisApi
         $username = $this->user->wulogin;
         $password = $this->user->wupassword;
         
-        // Demo action: Get from local JSON cache (FILE)
+        // If demo mode enabled: Get from local JSON cache (FILE)
         if ($this->demoMode) {
             $this->raw = file_get_contents(base_path("apis/wu-lpis-api/wu-lpis-api-$action.json"));
         }
@@ -53,6 +53,7 @@ class WuLpisApi
             }
             $this->raw = $process->getOutput();
         }
+
         $this->log("success", $action);
         $this->data = json_decode($this->raw, true)["data"];
         $this->status = json_decode($this->raw, true)["status"];
