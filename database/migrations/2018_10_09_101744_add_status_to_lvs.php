@@ -13,8 +13,13 @@ class AddStatusToLvs extends Migration
      */
     public function up()
     {
+    	$column = $table->hasColumn('status');
+
         Schema::table('lvs', function (Blueprint $table) {
-            $table->string('status')->nullable();
+        	$column = $table->hasColumn('status');
+            if (!$column) {
+            	$table->string('status')->nullable();
+            }
         });
     }
 
