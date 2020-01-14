@@ -12,7 +12,7 @@
                 <div class="p-3 w-100">
 
                     <div class="alert alert-warning text-center" role="alert">
-                        <p class="mb-0">Aktuell ist keine Registrierung möglich. Invite only!</strong></p>
+                        <p class="mb-0">Aktuell ist keine Registrierung möglich. Persönlicher Invite only!</strong></p>
                     </div>
 
                     <!-- Header -->
