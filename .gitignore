@@ -10,5 +10,7 @@ Homestead.json
 Homestead.yaml
 *.log
 .env
+
 apis/*
+
 /public/_webhooks
