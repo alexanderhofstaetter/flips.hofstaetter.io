@@ -14,7 +14,7 @@
 
 <p>Es konnten {{ $user->lvs()->count() }} aktive Lehrveranstaltungen gefunden werden.</p>
 
-@foreach ($user->lvs()->orderBy('gradebook', 'desc')->get() as $key => $lv)
+@foreach ($user->lvs()->orderBy('semester', 'desc')->get() as $key => $lv)
 <div class="block block-rounded block-bordered">
     <div class="block-header block-header-default">
         <h4 class="block-title">
@@ -32,7 +32,7 @@
     </div>
     <div class="block-content">
         @if ($lv->gradebook)
-            Aktuell sind {{ $lv->grades()->count() }} Noten eingetragen. <a href="{{ route('user.wulearn.open', [$user->id, urlencode(urlencode($lv->url_gradebook))]) }}" target="_blank">Notenbuch in Learn@WU öffnen</a>.
+            Aktuell sind {{ $lv->grades()->count() }} Noten eingetragen. <a href="{{ $lv->url_gradebook }}" target="_blank">Notenbuch in Learn@WU öffnen</a>.
 
             <div class="collapse gradebook_{{ $key }}">
                 <table class="lv-entry table table-sm table-bordered mt-2">
@@ -68,7 +68,7 @@
                 </p>
             </div>
         @else
-            <p>Kein Notenbuch vorhanden. <a href="{{ route('user.wulearn.open', [$user->id, urlencode(urlencode($lv->url))]) }}" target="_blank">LV in Learn@WU öffnen</a>.</p>
+            <p>Kein Notenbuch vorhanden. <a href="{{ $lv->url }}" target="_blank">LV in Learn@WU öffnen</a>.</p>
         @endif
     </div>
 </div>
