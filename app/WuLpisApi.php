@@ -13,7 +13,7 @@ class WuLpisApi
     private $identifier = 'wu-lpis-api';
     private $path = "apis/wu-lpis-api/api.py";
     private $sessiondir = "app/sessions/wulpisapi/";
-    private $demoMode = true;
+    private $demoMode = false;
 
     public $status, $data;
 
