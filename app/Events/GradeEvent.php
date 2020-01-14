@@ -10,9 +10,10 @@ use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Broadcasting\InteractsWithSockets;
 use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 use Illuminate\Support\Facades\Mail;
-use Carbon\Carbon;
+
 use App\Grade;
 use App\Mail\GradeUpdated;
+use Carbon\Carbon;
 
 class GradeEvent
 {

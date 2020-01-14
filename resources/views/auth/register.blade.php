@@ -12,7 +12,7 @@
                 <div class="p-3 w-100">
 
                     <div class="alert alert-warning text-center" role="alert">
-                        <p class="mb-0">Aktuell ist keine Registrierung möglich. Invite only</strong>!</p>
+                        <p class="mb-0">Aktuell ist keine Registrierung möglich. Invite only!</strong></p>
                     </div>
 
                     <!-- Header -->
@@ -34,7 +34,7 @@
                                 @csrf
 
                                 <div class="form-group">
-                                    <input id="email" type="email" class="form-control-lg form-control-alt form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" placeholder="E-Mail Adresse" required disabled>
+                                    <input id="email" type="email" class="form-control-lg form-control-alt form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" placeholder="E-Mail Adresse" required>
 
                                     @if ($errors->has('email'))
                                         <span class="invalid-feedback">
@@ -44,7 +44,7 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <input id="password" type="password" class="form-control-lg form-control-alt form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password"  placeholder="Passwort" required disabled>
+                                    <input id="password" type="password" class="form-control-lg form-control-alt form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password"  placeholder="Passwort" required>
 
                                     @if ($errors->has('password'))
                                         <span class="invalid-feedback">
@@ -54,11 +54,11 @@
                                 </div>
 
                                 <div class="form-group">
-                                        <input id="password-confirm" type="password" class="form-control-lg form-control-alt form-control" name="password_confirmation" placeholder="Passwort bestätigen" required disabled>
+                                        <input id="password-confirm" type="password" class="form-control-lg form-control-alt form-control" name="password_confirmation" placeholder="Passwort bestätigen" required>
                                 </div>
 
                                 <div class="form-group text-center py-3">
-                                    <button disabled type="submit" class="btn btn-block btn-hero-lg btn-hero-success">
+                                    <button type="submit" class="btn btn-block btn-hero-lg btn-hero-success">
                                         <i class="fa fa-fw fa-plus mr-1"></i> Registrieren
                                     </button>
                                     <p class="mt-3 mb-0 d-lg-flex justify-content-lg-between">

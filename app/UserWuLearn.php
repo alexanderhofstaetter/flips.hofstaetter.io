@@ -88,4 +88,10 @@ class UserWuLearn
         }
         return true;
     }
+
+    public function verify() {
+        $api = new WuLearnApi($this->user);
+        $api->call("verify");
+        return $api->status['logged_in'];
+    }
 }

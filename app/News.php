@@ -25,7 +25,7 @@ class News extends Model
         parent::boot();
 
         static::created(function($news) {
-            Event::fire('news.created', $news);
+            Event::dispatch('news.created', $news);
         });
     }
     

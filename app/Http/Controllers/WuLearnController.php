@@ -25,7 +25,7 @@ class WuLearnController extends Controller
 
     public function load_meta(Request $request, User $user) {
         $result = $user->wulearn()->load_meta();
-        flash('Die Informationen wurden aktualisiert.')->success();
+        flash('Daten wurden aktualisiert.')->success();
         return back();
     }
 
@@ -46,7 +46,7 @@ class WuLearnController extends Controller
         if ($result == true)
             flash('Die Verbindung zu Learn@WU wurde erfolgreich hergestellt. Die eingegebenen Logindaten sind gültig.')->success();
         else
-            flash('Es konnte keine Verbindung zu Learn@WU hergestellt werden. Bitte überprüfen Sie Ihre Logindaten.')->warning();
+            flash('Es konnte keine Verbindung zu Learn@WU hergestellt werden. Bitte überprüfen Sie Ihre Logindaten.')->error();
         return back();
     }
 

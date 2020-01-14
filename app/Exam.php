@@ -33,10 +33,10 @@ class Exam extends Model
         parent::boot();
 
         static::created(function($exam) {
-            Event::fire('exam.created', $exam);
+            Event::dispatch('exam.created', $exam);
         });
         static::updated(function($exam) {
-            Event::fire('exam.updated', $exam);
+            Event::dispatch('exam.updated', $exam);
         });
     }
     

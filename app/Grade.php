@@ -36,10 +36,10 @@ class Grade extends Model
         parent::boot();
 
         static::created(function($grade) {
-            Event::fire('grade.created', $grade);
+            Event::dispatch('grade.created', $grade);
         });
         static::updated(function($grade) {
-            Event::fire('grade.updated', $grade);
+            Event::dispatch('grade.updated', $grade);
         });
     }
 

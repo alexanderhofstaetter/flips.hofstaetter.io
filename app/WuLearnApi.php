@@ -21,10 +21,6 @@ class WuLearnApi
         $this->user = $user;
     }
 
-    public function verify() {
-        return true;
-    }
-
     public function call($action) {
         $username = $this->user->wulogin;
         $password = $this->user->wupassword;

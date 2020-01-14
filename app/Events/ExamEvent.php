@@ -10,33 +10,26 @@ use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Broadcasting\InteractsWithSockets;
 use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 use Illuminate\Support\Facades\Mail;
-use Carbon\Carbon;
+
 use App\Exam;
 use App\Mail\ExamUpdated;
+use Carbon\Carbon;
 
 class ExamEvent
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
-    /**
-     * Create a new event instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        //
-    }
-
     public function examCreated(Exam $exam)
     {
-        if ( $exam->date >= Carbon::now()->subDays(21) )
-            Mail::to( $exam->user )->send(new ExamUpdated( $exam ));
+        if ( $exam->date >= Carbon::now()->subDays(21) ) {
+            Mail::to( $exam->user )->send(new ExamUpdated($exam));
+        }
     }
 
     public function examUpdated(Exam $exam)
     {
-        if ( $exam->date >= Carbon::now()->subDays(21) )
-            Mail::to( $exam->user )->send(new ExamUpdated( $exam ));
+        if ( $exam->date >= Carbon::now()->subDays(21) ) {
+            Mail::to( $exam->user )->send(new ExamUpdated($exam));
+        }
     }
 }

@@ -10,10 +10,10 @@ use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Broadcasting\InteractsWithSockets;
 use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 use Illuminate\Support\Facades\Mail;
-use Carbon\Carbon;
+
 use App\News;
-use App\User;
 use App\Mail\NewsUpdated;
+use Carbon\Carbon;
 
 class NewsEvent
 {
