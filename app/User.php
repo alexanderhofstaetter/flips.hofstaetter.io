@@ -51,7 +51,7 @@ class User extends Authenticatable
 
     public function grades()
     {   return $this->hasMany('App\Grade');
-    }  
+    } 
 
     public function exams()
     {
@@ -63,8 +63,18 @@ class User extends Authenticatable
         return $this->hasMany('App\Activity');
     }
 
+    public function planobjects()
+    {
+        return $this->hasMany('App\PlanObject');
+    }
+
     public function wulearn()
     {
         return new UserWuLearn($this);
+    }
+
+    public function wulpis()
+    {
+        return new UserWuLpis($this);
     }
 }

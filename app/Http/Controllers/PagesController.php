@@ -65,6 +65,12 @@ class PagesController extends Controller
                ->with('user', Auth::user());
     }
 
+    public function planobjects()
+    {
+        return view('uni.planobjects')
+               ->with('user', Auth::user());
+    }
+
     public function download($filename)
     {   
         if ( Storage::exists($filename) )

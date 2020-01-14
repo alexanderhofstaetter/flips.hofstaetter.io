@@ -12,7 +12,7 @@ class Lv extends Model
      * @var array
      */
     protected $fillable = [
-        'name', 'url', 'gradebook', 'semester', 'url_gradebook', 'number', 'key'
+        'name', 'url', 'gradebook', 'semester', 'url_gradebook', 'number', 'key', 'status'
     ];
 
     protected $casts = [

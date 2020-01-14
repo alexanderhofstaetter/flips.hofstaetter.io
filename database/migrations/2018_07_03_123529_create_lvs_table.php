@@ -18,6 +18,7 @@ class CreateLvsTable extends Migration
             $table->string('key');
             $table->string('name')->nullable();
             $table->string('url')->nullable();
+            $table->string('status')->nullable();
             $table->string('gradebook')->nullable();
             $table->string('semester')->nullable();
             $table->string('url_gradebook')->nullable();
