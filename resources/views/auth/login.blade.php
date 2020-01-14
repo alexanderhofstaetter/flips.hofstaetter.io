@@ -29,7 +29,7 @@
                                 @csrf
                                 <div class="py-3">
                                     <div class="form-group">
-                                        <input type="email" class="form-control form-control-lg form-control-alt form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" id="email" name="email" placeholder="E-Mail Adresse" value="{{ $email or old('email') }}" required autofocus>
+                                        <input type="email" class="form-control form-control-lg form-control-alt form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" id="email" name="email" placeholder="E-Mail Adresse" value="{{ old('email') }}" required autofocus>
 
                                         @if ($errors->has('email'))
                                             <span class="invalid-feedback">
