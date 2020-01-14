@@ -11,10 +11,6 @@
             <div class="hero-static col-md-6 d-flex align-items-center bg-white">
                 <div class="p-3 w-100">
 
-                    <div class="alert alert-warning text-center" role="alert">
-                        <p class="mb-0">Aktuell ist keine Registrierung möglich. Persönlicher Invite only!</strong></p>
-                    </div>
-
                     <!-- Header -->
                     <div class="mb-3 text-center">
                         <a class="link-fx text-success font-w700 font-size-h1" href="/">
@@ -30,6 +26,9 @@
                     <!-- For more info and examples you can check out https://github.com/jzaefferer/jquery-validation -->
                     <div class="row no-gutters justify-content-center">
                         <div class="col-sm-8 col-xl-6">
+
+                        	@include('flash::message')
+
                             <form class="js-validation-reminder" method="POST" action="{{ route('register') }}">
                                 @csrf
 

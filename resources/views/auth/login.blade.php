@@ -19,12 +19,15 @@
                         <p class="text-uppercase font-w700 font-size-sm text-muted">Login</p>
                     </div>
                     <!-- END Header -->
-
+            		
                     <!-- Sign In Form -->
                     <!-- jQuery Validation (.js-validation-signin class is initialized in js/pages/op_auth_signin.js) -->
                     <!-- For more info and examples you can check out https://github.com/jzaefferer/jquery-validation -->
                     <div class="row no-gutters justify-content-center">
                         <div class="col-sm-8 col-xl-6">
+
+                        	@include('flash::message')
+                        	
                             <form  class="js-validation-signin" method="POST" action="{{ route('login') }}">
                                 @csrf
                                 <div class="py-3">

@@ -39,7 +39,7 @@ class Kernel extends ConsoleKernel
                 $user->wulearn()->load_news();
             }
 
-        })->everyMinute();
+        })->everyTenMinutes();
     }
 
     /**
