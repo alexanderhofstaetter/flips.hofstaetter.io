@@ -8,11 +8,11 @@
 
             <div class="col-sm-4 mb-1 mb-sm-0 text-center">
                 <i class="fab fa-github"></i> 
-                <a href="https://github.com/alexanderhofstaetter/flips" target="_blank">alexanderhofstaetter/flips</a>
+                <a href="https://github.com/alexanderhofstaetter/flips.hofstaetter.io" target="_blank">alexanderhofstaetter/flips.hofstaetter.io</a>
             </div>
 
             <div class="col-sm-4 mb-1 mb-sm-0 text-center text-sm-right">
-                Crafted with <i class="fa fa-heart text-danger"></i> by 
+                Made with <i class="fa fa-heart text-danger"></i> by 
                 <a href="https://hofstaetter.io" target="_blank">Alexander Hofstaetter</a>
             </div>
         </div>
