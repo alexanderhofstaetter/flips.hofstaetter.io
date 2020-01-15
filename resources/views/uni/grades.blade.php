@@ -3,7 +3,7 @@
 @section('maincontent')
 
 <!-- Noten -->
-<h1>Noten aller Lehrveranstaltungen</h1>
+<h1>Noten aller Lehrveranstaltungen!</h1>
 
 <form class="mb-4" action="{{ route('user.wulearn.load.data', $user->id) }}" method="POST">
     @csrf
