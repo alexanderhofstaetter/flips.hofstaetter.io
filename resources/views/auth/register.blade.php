@@ -33,6 +33,26 @@
                                 @csrf
 
                                 <div class="form-group">
+                                    <input id="firstname" type="text" class="form-control-lg form-control-alt form-control{{ $errors->has('firstname') ? ' is-invalid' : '' }}" name="firstname" value="{{ old('firstname') }}" placeholder="Vorname">
+
+                                    @if ($errors->has('firstname'))
+                                        <span class="invalid-feedback">
+                                            <strong>{{ $errors->first('firstname') }}</strong>
+                                        </span>
+                                    @endif
+                                </div>
+
+                                <div class="form-group">
+                                    <input id="lastname" type="text" class="form-control-lg form-control-alt form-control{{ $errors->has('lastname') ? ' is-invalid' : '' }}" name="lastname" value="{{ old('lastname') }}" placeholder="Nachname">
+
+                                    @if ($errors->has('lastname'))
+                                        <span class="invalid-feedback">
+                                            <strong>{{ $errors->first('lastname') }}</strong>
+                                        </span>
+                                    @endif
+                                </div>
+
+                                <div class="form-group">
                                     <input id="email" type="email" class="form-control-lg form-control-alt form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" name="email" value="{{ old('email') }}" placeholder="E-Mail Adresse" required>
 
                                     @if ($errors->has('email'))
